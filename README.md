@@ -1,7 +1,7 @@
 # 03 JavaScript: Password Generator
 
 ## URL of the Deployed Application 
-[03 JavaScript: Password Generator](https://github.com/YichanYouRichard/03-Challenge-Password-Generator)
+[03 JavaScript: Password Generator](https://yichanyourichard.github.io/03-Challenge-Password-Generator/)
 
 ## My Task
 
