@@ -50,9 +50,10 @@ body {
 
 .form_label {
   padding: 10px;
-position: relative;
-display: inline;
-text-align: center;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 150px;
 }
 
 .form_input {
