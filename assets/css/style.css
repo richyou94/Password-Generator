@@ -34,13 +34,30 @@ body {
 }
 
 .card-header {
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .card-body {
   text-align: center;
+}
+
+.row {
+  width: 100%;
+  position: relative;
+}
+
+.form_label {
+  padding: 10px;
+position: relative;
+display: inline;
+text-align: center;
+}
+
+.form_input {
+  width: 3rem;
+  padding: 10px;
 }
 
 .btn {
