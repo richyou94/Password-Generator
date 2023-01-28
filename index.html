@@ -16,9 +16,17 @@
       <div class="card-body">
         <form class="settings">
           <label for="min-character" class="form_label"
-            >min-character: <span class="message">*required</span>
+            >min-character:
+            <span class="message" id="minMessage">*required</span>
           </label>
-          <input type="number" class="form_input" id="min-character" />
+          <input
+            type="number"
+            class="form_input"
+            id="min-character"
+            placeholder="6"
+            min="0"
+            oninput="validity.valid||(value='');"
+          />
 
           <label for="min-character" class="form_label"
             >max-character: <span class="message">*required</span></label
@@ -31,6 +39,8 @@
                 class="selection"
                 name="uppercase"
                 value="uppercase"
+                id="uppercase"
+                checked
               />
               <label for="uppercase">Uppercase</label><br />
             </div>
@@ -40,6 +50,8 @@
                 class="selection"
                 name="lowercase"
                 value="lowercase"
+                id="lowercase"
+                checked
               />
               <label for="lowercase">Lowercase</label>
             </div>
@@ -49,6 +61,8 @@
                 class="selection"
                 name="numeric"
                 value="numeric"
+                id="numeric"
+                checked
               />
               <label for="numeric">Numeric</label>
             </div>
@@ -58,6 +72,8 @@
                 class="selection"
                 name="special"
                 value="special"
+                id="special"
+                checked
               />
               <label for="special">Special</label>
             </div>
