@@ -91,7 +91,8 @@ const password = () => {
   // check if value is exist
     console.log(minCharacter);
     if (minCharacter === 0 || minCharacter === "0") {
-      console.log("empty");
+      errorMin.innerText = "test"
+      errorMin.style.display
     }
 
   // check min-character to be greater than 8, lower than 128

@@ -19,6 +19,9 @@ body {
     #c780fa3e
   );
 }
+.hide {
+  display: none;
+}
 
 .main {
   background-color: #fff;
@@ -89,7 +92,6 @@ body {
   color: red;
   left: 54%;
   top: 76%;
-  display: none;
 }
 .message-select {
   position: absolute;
@@ -98,7 +100,6 @@ body {
   color: red;
   left: 42%;
   top: 97%;
-  display: none;
 }
 
 .btn {
