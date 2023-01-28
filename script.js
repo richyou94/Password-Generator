@@ -80,9 +80,11 @@ function errorPop(element, text) {
     element.innerText = "*required";
   }, 3000);
 }
+
 const password = () => {
   // reset the password finalArray
-  const finalArray = [];
+  let finalArray = [];
+  let finalSets = [];
 
   // variables for inputs
   const minCharacter = Number(document.querySelector("#min-character").value);
@@ -102,9 +104,11 @@ const password = () => {
 
   if (minCharacter === 0 || minCharacter === "0") {
     errorPop(errorMin, "*required");
+    return;
   }
   if (maxCharacter === 0 || maxCharacter === "0") {
     errorPop(errorMax, "*required");
+    return;
   }
   if (
     !isSelectedUpper &&
@@ -112,34 +116,52 @@ const password = () => {
     !isSelectedNum &&
     !isSelectedSpecial
   ) {
-    errorPop(errorCheckbox, "*required")
+    errorPop(errorCheckbox, "*required");
+    return;
   }
 
   // check min-character to be greater than 8, lower than 128
   // check max-character to be greater than 8, lower than 128
   if (minCharacter > maxCharacter) {
-    errorPop(errorMin, "min-character needs to be lower than max-character")
-    errorPop(errorMax, "max-character needs to be greater than max-character")
+    errorPop(errorMin, "min-character needs to be lower than max-character");
+    errorPop(errorMax, "max-character needs to be greater than max-character");
+    return;
   }
-
-// add set of characters into final array. depends on checkedbox
+  // add set of characters into final array. depends on checkedbox
+  if (isSelectedLower) {
+    finalArray = finalArray.concat(lowerCaseLetters);
+    finalSets.push(lowerCaseLetters);
+  }
+  if (isSelectedUpper) {
+    finalArray = finalArray.concat(upperCaseLetters);
+    finalSets.push(upperCaseLetters);
+  }
+  if (isSelectedNum) {
+    finalArray = finalArray.concat(numericLetters);
+    finalSets.push(numericLetters);
+  }
+  if (isSelectedSpecial) {
+    finalArray = finalArray.concat(specialLetters);
+    finalSets.push(specialLetters);
+  }
 
   // Randomize the password by creating length of password and randomize the index of final array
 
-    let resultPassword = "";
-    for (let i = 0; i < passwordLength; i++) {
-      resultPassword += finalArray[Math.floor(Math.random() * finalArray.length)];
-    }
-    console.log(`The result of the generated password is ${resultPassword}.`);
-    return resultPassword;
+  let resultPassword = "";
+  for (let i = 0; i < passwordLength; i++) {
+    resultPassword += finalArray[Math.floor(Math.random() * finalArray.length)];
+  }
+  console.log(`The result of the generated password is ${resultPassword}.`);
+  console.log(resultPassword);
+  return resultPassword;
 };
 
 // Write password to the #password input
 function writePassword() {
   var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  passwordText.value = password();
 }
 
 // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
-generateBtn.addEventListener("click", password);
+generateBtn.addEventListener("click", writePassword);
