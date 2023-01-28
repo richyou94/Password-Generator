@@ -122,16 +122,16 @@ const password = () => {
     errorPop(errorMax, "max-character needs to be greater than max-character")
   }
 
-
+// add set of characters into final array. depends on checkedbox
 
   // Randomize the password by creating length of password and randomize the index of final array
 
-  //   let resultPassword = "";
-  //   for (let i = 0; i < passwordLength; i++) {
-  //     resultPassword += finalArray[Math.floor(Math.random() * finalArray.length)];
-  //   }
-  //   console.log(`The result of the generated password is ${resultPassword}.`);
-  //   return resultPassword;
+    let resultPassword = "";
+    for (let i = 0; i < passwordLength; i++) {
+      resultPassword += finalArray[Math.floor(Math.random() * finalArray.length)];
+    }
+    console.log(`The result of the generated password is ${resultPassword}.`);
+    return resultPassword;
 };
 
 // Write password to the #password input
