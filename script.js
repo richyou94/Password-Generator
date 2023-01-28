@@ -81,6 +81,13 @@ function errorPop(element, text) {
   }, 3000);
 }
 
+function randomPW (totalChar, length) {
+    let resultPassword = "";
+    for (let i = 0; i < length; i++) {
+      resultPassword += totalChar[Math.floor(Math.random() * totalChar.length)];
+    }
+    return resultPassword;
+}
 const password = () => {
   // reset the password finalArray
   let finalArray = [];
@@ -146,13 +153,7 @@ const password = () => {
   }
 
   // Randomize the password by creating length of password and randomize the index of final array
-
-  let resultPassword = "";
-  for (let i = 0; i < passwordLength; i++) {
-    resultPassword += finalArray[Math.floor(Math.random() * finalArray.length)];
-  }
-  console.log(`The result of the generated password is ${resultPassword}.`);
-  console.log(resultPassword);
+const resultPassword = randomPW(finalArray, passwordLength, finalSets);
   return resultPassword;
 };
 
