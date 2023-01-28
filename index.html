@@ -9,21 +9,61 @@
   </head>
 
   <body>
-    <header class="header">
-      <h1>Password Generator</h1>
-    </header>
     <main class="main">
       <div class="card-header">
-        <h2>Settings</h2>
+        <h2>PASSWORD GENERATOR</h2>
       </div>
       <div class="card-body">
-        <div class="settings">
-          <label for="min-character" class="form_label">min-character: </label>
+        <form class="settings">
+          <label for="min-character" class="form_label"
+            >min-character: <span class="message">*required</span>
+          </label>
           <input type="number" class="form_input" id="min-character" />
 
-          <label for="min-character" class="form_label">max-character: </label>
+          <label for="min-character" class="form_label"
+            >max-character: <span class="message">*required</span></label
+          >
           <input type="number" class="form_input" id="max-character" />
-        </div>
+          <div class="container">
+            <div class="input-box">
+              <input
+                type="radio"
+                class="selection"
+                name="uppercase"
+                value="uppercase"
+              />
+              <label for="uppercase">Uppercase</label><br />
+            </div>
+            <div class="input-box">
+              <input
+                type="radio"
+                class="selection"
+                name="lowercase"
+                value="lowercase"
+              />
+              <label for="lowercase">Lowercase</label>
+            </div>
+            <div class="input-box">
+              <input
+                type="radio"
+                class="selection"
+                name="numeric"
+                value="numeric"
+              />
+              <label for="numeric">Numeric</label>
+            </div>
+            <div class="input-box">
+              <input
+                type="radio"
+                class="selection"
+                name="special"
+                value="special"
+              />
+              <label for="special">Special</label>
+            </div>
+            <span class="message-select">*required</span>
+          </div>
+        </form>
 
         <textarea
           readonly
