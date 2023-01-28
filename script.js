@@ -69,7 +69,17 @@ var generateBtn = document.querySelector("#generate");
 
 //   error message variables
 var errorMin = document.querySelector("#minMessage");
+var errorMax = document.querySelector("#maxMessage");
+var errorCheckbox = document.querySelector("#checkboxMessage");
 
+function errorPop(element, text) {
+  element.innerText = text;
+  element.classList.remove("hide");
+  setTimeout(() => {
+    element.classList.add("hide");
+    element.innerText = "*required";
+  }, 3000);
+}
 const password = () => {
   // reset the password finalArray
   const finalArray = [];
@@ -89,16 +99,30 @@ const password = () => {
 
   // Ask user for Minimum number
   // check if value is exist
-    console.log(minCharacter);
-    if (minCharacter === 0 || minCharacter === "0") {
-      errorMin.innerText = "test"
-      errorMin.style.display
-    }
+
+  if (minCharacter === 0 || minCharacter === "0") {
+    errorPop(errorMin, "*required");
+  }
+  if (maxCharacter === 0 || maxCharacter === "0") {
+    errorPop(errorMax, "*required");
+  }
+  if (
+    !isSelectedUpper &&
+    !isSelectedLower &&
+    !isSelectedNum &&
+    !isSelectedSpecial
+  ) {
+    errorPop(errorCheckbox, "*required")
+  }
 
   // check min-character to be greater than 8, lower than 128
   // check max-character to be greater than 8, lower than 128
+  if (minCharacter > maxCharacter) {
+    errorPop(errorMin, "min-character needs to be lower than max-character")
+    errorPop(errorMax, "max-character needs to be greater than max-character")
+  }
 
-  //   check min is less than max
+
 
   // Randomize the password by creating length of password and randomize the index of final array
 
